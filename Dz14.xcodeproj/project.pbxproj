@@ -11,7 +11,11 @@
 		8402E8F729745AC00039F1F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E8F629745AC00039F1F3 /* SceneDelegate.swift */; };
 		8402E8FE29745AC30039F1F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8402E8FD29745AC30039F1F3 /* Assets.xcassets */; };
 		8402E90F29745F3E0039F1F3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8402E90E29745F3E0039F1F3 /* SnapKit */; };
-		8402E91129745FA60039F1F3 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E91029745FA60039F1F3 /* PhotosViewController.swift */; };
+		8402E913297462EA0039F1F3 /* PhotosTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E912297462EA0039F1F3 /* PhotosTabBarController.swift */; };
+		8402E9152974676D0039F1F3 /* LibraryTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E9142974676D0039F1F3 /* LibraryTabBarViewController.swift */; };
+		8402E917297468600039F1F3 /* ForYouTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E916297468600039F1F3 /* ForYouTabBarViewController.swift */; };
+		8402E919297469270039F1F3 /* AlbumsTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E918297469270039F1F3 /* AlbumsTabBarViewController.swift */; };
+		8402E91B297469CA0039F1F3 /* SearchTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E91A297469CA0039F1F3 /* SearchTabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +24,11 @@
 		8402E8F629745AC00039F1F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8402E8FD29745AC30039F1F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8402E90229745AC30039F1F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8402E91029745FA60039F1F3 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		8402E912297462EA0039F1F3 /* PhotosTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTabBarController.swift; sourceTree = "<group>"; };
+		8402E9142974676D0039F1F3 /* LibraryTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTabBarViewController.swift; sourceTree = "<group>"; };
+		8402E916297468600039F1F3 /* ForYouTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouTabBarViewController.swift; sourceTree = "<group>"; };
+		8402E918297469270039F1F3 /* AlbumsTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTabBarViewController.swift; sourceTree = "<group>"; };
+		8402E91A297469CA0039F1F3 /* SearchTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +92,11 @@
 		8402E90A29745E6C0039F1F3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8402E91029745FA60039F1F3 /* PhotosViewController.swift */,
+				8402E912297462EA0039F1F3 /* PhotosTabBarController.swift */,
+				8402E9142974676D0039F1F3 /* LibraryTabBarViewController.swift */,
+				8402E916297468600039F1F3 /* ForYouTabBarViewController.swift */,
+				8402E918297469270039F1F3 /* AlbumsTabBarViewController.swift */,
+				8402E91A297469CA0039F1F3 /* SearchTabBarViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,9 +190,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8402E91129745FA60039F1F3 /* PhotosViewController.swift in Sources */,
+				8402E919297469270039F1F3 /* AlbumsTabBarViewController.swift in Sources */,
+				8402E91B297469CA0039F1F3 /* SearchTabBarViewController.swift in Sources */,
+				8402E9152974676D0039F1F3 /* LibraryTabBarViewController.swift in Sources */,
+				8402E913297462EA0039F1F3 /* PhotosTabBarController.swift in Sources */,
 				8402E8F529745AC00039F1F3 /* AppDelegate.swift in Sources */,
 				8402E8F729745AC00039F1F3 /* SceneDelegate.swift in Sources */,
+				8402E917297468600039F1F3 /* ForYouTabBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
