@@ -17,7 +17,6 @@ class PhotosTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
 
     private func setupTabBarController() {
-        tabBar.backgroundColor = .white
     }
 
     private func setupTabBarViewControllers() {
