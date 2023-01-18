@@ -19,6 +19,7 @@
 		8402E920297730EC0039F1F3 /* MyAlbumsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E91F297730EC0039F1F3 /* MyAlbumsCell.swift */; };
 		8402E923297815EC0039F1F3 /* MyAlbumsCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E922297815EC0039F1F3 /* MyAlbumsCellHeader.swift */; };
 		8402E925297825300039F1F3 /* MediaTypesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E924297825300039F1F3 /* MediaTypesCell.swift */; };
+		8402E9292978501C0039F1F3 /* MediaTypesCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E9282978501C0039F1F3 /* MediaTypesCellHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		8402E91F297730EC0039F1F3 /* MyAlbumsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlbumsCell.swift; sourceTree = "<group>"; };
 		8402E922297815EC0039F1F3 /* MyAlbumsCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlbumsCellHeader.swift; sourceTree = "<group>"; };
 		8402E924297825300039F1F3 /* MediaTypesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTypesCell.swift; sourceTree = "<group>"; };
+		8402E9282978501C0039F1F3 /* MediaTypesCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTypesCellHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				8402E922297815EC0039F1F3 /* MyAlbumsCellHeader.swift */,
+				8402E9282978501C0039F1F3 /* MediaTypesCellHeader.swift */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 			files = (
 				8402E919297469270039F1F3 /* AlbumsTabBarViewController.swift in Sources */,
 				8402E91B297469CA0039F1F3 /* SearchTabBarViewController.swift in Sources */,
+				8402E9292978501C0039F1F3 /* MediaTypesCellHeader.swift in Sources */,
 				8402E923297815EC0039F1F3 /* MyAlbumsCellHeader.swift in Sources */,
 				8402E9152974676D0039F1F3 /* LibraryTabBarViewController.swift in Sources */,
 				8402E913297462EA0039F1F3 /* PhotosTabBarController.swift in Sources */,
