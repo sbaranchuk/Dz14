@@ -21,7 +21,6 @@ class MediaTypeCellHeader: UICollectionReusableView {
 
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "My Albums"
         label.font = UIFont.boldSystemFont(ofSize: 19)
         return label
     }()

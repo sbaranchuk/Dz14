@@ -22,6 +22,7 @@ class AlbumsTabBarViewController: UIViewController {
         collection.register(MediaTypesCell.self, forCellWithReuseIdentifier: MediaTypesCell.identifier)
         collection.register(MediaTypeCellHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MediaTypeCellHeader.identifier)
         collection.register(UtilittiesCell.self, forCellWithReuseIdentifier: UtilittiesCell.identifier)
+        collection.register(UtilitiesCellHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: UtilitiesCellHeader.identifier)
         return collection
     }()
     
@@ -114,9 +115,13 @@ class AlbumsTabBarViewController: UIViewController {
                 let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: layoutItem, count: 10)
                 layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 
+                let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(30))
+                let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+
                 let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
                 sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 0)
                 sectionLayout.orthogonalScrollingBehavior = .groupPaging
+                sectionLayout.boundarySupplementaryItems = [layoutSectionHeader]
 
                 return sectionLayout
             default:
@@ -193,6 +198,10 @@ extension AlbumsTabBarViewController: UICollectionViewDelegate, UICollectionView
         case 1:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MediaTypeCellHeader.identifier, for: indexPath) as? MediaTypeCellHeader
             header?.titleLabel.text = "Media Types"
+            return header ?? UICollectionReusableView()
+        case 2:
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: UtilitiesCellHeader.identifier, for: indexPath) as? UtilitiesCellHeader
+            header?.titleLabel.text = "Utilities"
             return header ?? UICollectionReusableView()
         default:
             return UICollectionReusableView()
