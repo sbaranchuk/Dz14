@@ -21,6 +21,7 @@ class AlbumsTabBarViewController: UIViewController {
         collection.register(MyAlbumsCellHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MyAlbumsCellHeader.identifier)
         collection.register(MediaTypesCell.self, forCellWithReuseIdentifier: MediaTypesCell.identifier)
         collection.register(MediaTypeCellHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MediaTypeCellHeader.identifier)
+        collection.register(UtilittiesCell.self, forCellWithReuseIdentifier: UtilittiesCell.identifier)
         return collection
     }()
     
@@ -100,6 +101,24 @@ class AlbumsTabBarViewController: UIViewController {
                 sectionLayout.boundarySupplementaryItems = [layoutSectionHeader]
                 
                 return sectionLayout
+            case 2:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                      heightDimension: .fractionalHeight(1))
+
+                let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93),
+                                                       heightDimension: .fractionalHeight(0.6))
+
+                let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: layoutItem, count: 10)
+                layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+
+                let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
+                sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 0)
+                sectionLayout.orthogonalScrollingBehavior = .groupPaging
+
+                return sectionLayout
             default:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                       heightDimension: .fractionalHeight(1))
@@ -131,7 +150,7 @@ extension AlbumsTabBarViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        2
+        3
     }
     
     
@@ -143,6 +162,13 @@ extension AlbumsTabBarViewController: UICollectionViewDelegate, UICollectionView
             return cell ?? UICollectionViewCell()
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesCell.identifier, for: indexPath) as? MediaTypesCell
+            cell?.backgroundColor = .clear
+            if indexPath.item == 9 {
+                cell?.separatorView.backgroundColor = .clear
+            }
+            return cell ?? UICollectionViewCell()
+        case 2:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UtilittiesCell.identifier, for: indexPath) as? UtilittiesCell
             cell?.backgroundColor = .clear
             if indexPath.item == 9 {
                 cell?.separatorView.backgroundColor = .clear
@@ -168,7 +194,6 @@ extension AlbumsTabBarViewController: UICollectionViewDelegate, UICollectionView
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MediaTypeCellHeader.identifier, for: indexPath) as? MediaTypeCellHeader
             header?.titleLabel.text = "Media Types"
             return header ?? UICollectionReusableView()
-
         default:
             return UICollectionReusableView()
         }
