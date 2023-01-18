@@ -17,6 +17,7 @@
 		8402E919297469270039F1F3 /* AlbumsTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E918297469270039F1F3 /* AlbumsTabBarViewController.swift */; };
 		8402E91B297469CA0039F1F3 /* SearchTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E91A297469CA0039F1F3 /* SearchTabBarViewController.swift */; };
 		8402E920297730EC0039F1F3 /* MyAlbumsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E91F297730EC0039F1F3 /* MyAlbumsCell.swift */; };
+		8402E923297815EC0039F1F3 /* MyAlbumsCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E922297815EC0039F1F3 /* MyAlbumsCellHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		8402E918297469270039F1F3 /* AlbumsTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTabBarViewController.swift; sourceTree = "<group>"; };
 		8402E91A297469CA0039F1F3 /* SearchTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabBarViewController.swift; sourceTree = "<group>"; };
 		8402E91F297730EC0039F1F3 /* MyAlbumsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlbumsCell.swift; sourceTree = "<group>"; };
+		8402E922297815EC0039F1F3 /* MyAlbumsCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlbumsCellHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				8402E90929745E5A0039F1F3 /* App */,
 				8402E90A29745E6C0039F1F3 /* View */,
 				8402E90C29745E8C0039F1F3 /* Cell */,
+				8402E921297815D10039F1F3 /* Headers */,
 				8402E90B29745E860039F1F3 /* Model */,
 			);
 			path = Dz14;
@@ -116,6 +119,14 @@
 				8402E91F297730EC0039F1F3 /* MyAlbumsCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		8402E921297815D10039F1F3 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				8402E922297815EC0039F1F3 /* MyAlbumsCellHeader.swift */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +206,7 @@
 			files = (
 				8402E919297469270039F1F3 /* AlbumsTabBarViewController.swift in Sources */,
 				8402E91B297469CA0039F1F3 /* SearchTabBarViewController.swift in Sources */,
+				8402E923297815EC0039F1F3 /* MyAlbumsCellHeader.swift in Sources */,
 				8402E9152974676D0039F1F3 /* LibraryTabBarViewController.swift in Sources */,
 				8402E913297462EA0039F1F3 /* PhotosTabBarController.swift in Sources */,
 				8402E8F529745AC00039F1F3 /* AppDelegate.swift in Sources */,

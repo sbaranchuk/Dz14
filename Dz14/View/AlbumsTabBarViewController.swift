@@ -18,6 +18,7 @@ class AlbumsTabBarViewController: UIViewController {
         collection.delegate = self
         collection.dataSource = self
         collection.register(MyAlbumsCell.self, forCellWithReuseIdentifier: MyAlbumsCell.identifier)
+        collection.register(MyAlbumsCellHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MyAlbumsCellHeader.identifier)
         return collection
     }()
 
@@ -66,9 +67,13 @@ class AlbumsTabBarViewController: UIViewController {
                 let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: layoutItem, count: 2)
                 layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0)
 
+                let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(30))
+                let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+
                 let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
                 sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 5)
                 sectionLayout.orthogonalScrollingBehavior = .groupPaging
+                sectionLayout.boundarySupplementaryItems = [layoutSectionHeader]
 
                 return sectionLayout
             default:
@@ -121,5 +126,12 @@ extension AlbumsTabBarViewController: UICollectionViewDelegate, UICollectionView
             cell.backgroundColor = .systemRed
             return cell
         }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MyAlbumsCellHeader.identifier, for: indexPath) as? MyAlbumsCellHeader
+        header?.titleLabel.text = "My Albums"
+        header?.seeAllLabel.text = "See All"
+        return header ?? UICollectionReusableView()
     }
 }
