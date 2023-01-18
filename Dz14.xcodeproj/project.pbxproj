@@ -18,6 +18,7 @@
 		8402E91B297469CA0039F1F3 /* SearchTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E91A297469CA0039F1F3 /* SearchTabBarViewController.swift */; };
 		8402E920297730EC0039F1F3 /* MyAlbumsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E91F297730EC0039F1F3 /* MyAlbumsCell.swift */; };
 		8402E923297815EC0039F1F3 /* MyAlbumsCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E922297815EC0039F1F3 /* MyAlbumsCellHeader.swift */; };
+		8402E925297825300039F1F3 /* MediaTypesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E924297825300039F1F3 /* MediaTypesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		8402E91A297469CA0039F1F3 /* SearchTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabBarViewController.swift; sourceTree = "<group>"; };
 		8402E91F297730EC0039F1F3 /* MyAlbumsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlbumsCell.swift; sourceTree = "<group>"; };
 		8402E922297815EC0039F1F3 /* MyAlbumsCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlbumsCellHeader.swift; sourceTree = "<group>"; };
+		8402E924297825300039F1F3 /* MediaTypesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTypesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				8402E91F297730EC0039F1F3 /* MyAlbumsCell.swift */,
+				8402E924297825300039F1F3 /* MediaTypesCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				8402E8F529745AC00039F1F3 /* AppDelegate.swift in Sources */,
 				8402E8F729745AC00039F1F3 /* SceneDelegate.swift in Sources */,
 				8402E917297468600039F1F3 /* ForYouTabBarViewController.swift in Sources */,
+				8402E925297825300039F1F3 /* MediaTypesCell.swift in Sources */,
 				8402E920297730EC0039F1F3 /* MyAlbumsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

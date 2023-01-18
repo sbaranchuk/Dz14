@@ -14,7 +14,7 @@ class MyAlbumsCell: UICollectionViewCell {
     // MARK: - Outlets
 
     private lazy var imageView: UIImageView = {
-        let image = UIImage(named: "IMG_6827")
+        let image = UIImage(named: "photo")
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
