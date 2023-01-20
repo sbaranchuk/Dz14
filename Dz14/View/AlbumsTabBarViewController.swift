@@ -9,6 +9,10 @@ import UIKit
 import SnapKit
 
 class AlbumsTabBarViewController: UIViewController {
+
+    // MARK: - Properties
+
+    private var cells: [[CellContent]]?
     
     // MARK: - Outlets
     
@@ -33,6 +37,7 @@ class AlbumsTabBarViewController: UIViewController {
         setupView()
         setupHierarchy()
         setupLayout()
+        cells = CellContent.cells
     }
     
     // MARK: - Setups
@@ -76,7 +81,7 @@ class AlbumsTabBarViewController: UIViewController {
                 
                 let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
                 sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 5)
-                sectionLayout.orthogonalScrollingBehavior = .groupPaging
+                sectionLayout.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
                 sectionLayout.boundarySupplementaryItems = [layoutSectionHeader]
                 
                 return sectionLayout
@@ -90,7 +95,7 @@ class AlbumsTabBarViewController: UIViewController {
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93),
                                                        heightDimension: .fractionalHeight(0.6))
                 
-                let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: layoutItem, count: 10)
+                let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: layoutItem, count: self.cells?[sectionIndex].count ?? 0)
                 layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 
                 let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(30))
@@ -110,9 +115,9 @@ class AlbumsTabBarViewController: UIViewController {
                 layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93),
-                                                       heightDimension: .fractionalHeight(0.6))
+                                                       heightDimension: .fractionalHeight(0.4))
 
-                let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: layoutItem, count: 10)
+                let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: layoutItem, count: self.cells?[sectionIndex].count ?? 0)
                 layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 
                 let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(30))
@@ -122,25 +127,25 @@ class AlbumsTabBarViewController: UIViewController {
                 sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 0)
                 sectionLayout.orthogonalScrollingBehavior = .groupPaging
                 sectionLayout.boundarySupplementaryItems = [layoutSectionHeader]
-
+                
                 return sectionLayout
             default:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                       heightDimension: .fractionalHeight(1))
-                
+
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
                 layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 0)
-                
+
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1 / 2.2),
                                                        heightDimension: .fractionalWidth(1 / 1.8 * 2))
-                
+
                 let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: layoutItem, count: 2)
                 layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0)
-                
+
                 let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
                 sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
                 sectionLayout.orthogonalScrollingBehavior = .groupPaging
-                
+
                 return sectionLayout
             }
         }
@@ -151,41 +156,54 @@ class AlbumsTabBarViewController: UIViewController {
 
 extension AlbumsTabBarViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return cells?[section].count ?? 0
     }
-    
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        3
+        return cells?.count ?? 0
     }
-    
-    
+
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyAlbumsCell.identifier, for: indexPath) as? MyAlbumsCell
+            cell?.cells = cells?[indexPath.section][indexPath.item]
             cell?.backgroundColor = .clear
             return cell ?? UICollectionViewCell()
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesCell.identifier, for: indexPath) as? MediaTypesCell
+            cell?.cells = cells?[indexPath.section][indexPath.item]
             cell?.backgroundColor = .clear
-            if indexPath.item == 9 {
+            if indexPath.item == (cells?[indexPath.section].count ?? 0) - 1 {
                 cell?.separatorView.backgroundColor = .clear
             }
             return cell ?? UICollectionViewCell()
         case 2:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UtilittiesCell.identifier, for: indexPath) as? UtilittiesCell
-            cell?.backgroundColor = .clear
-            if indexPath.item == 9 {
-                cell?.separatorView.backgroundColor = .clear
+            switch cells?[indexPath.section][indexPath.item].withLock {
+            case true:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UtilittiesCell.identifier, for: indexPath) as? UtilittiesCell
+                cell?.cells = cells?[indexPath.section][indexPath.item]
+                cell?.backgroundColor = .clear
+                if indexPath.item == (cells?[indexPath.section].count ?? 0) - 1 {
+                    cell?.separatorView.backgroundColor = .clear
+                }
+                return cell ?? UICollectionViewCell()
+            default:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesCell.identifier, for: indexPath) as? MediaTypesCell
+                cell?.cells = cells?[indexPath.section][indexPath.item]
+                cell?.backgroundColor = .clear
+                if indexPath.item == (cells?[indexPath.section].count ?? 0) - 1 {
+                    cell?.separatorView.backgroundColor = .clear
+                }
+                return cell ?? UICollectionViewCell()
             }
-            return cell ?? UICollectionViewCell()
+
         default:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyAlbumsCell.identifier, for: indexPath)
-            cell.backgroundColor = .systemRed
-            return cell
+            return UICollectionViewCell()
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
         switch indexPath.section {

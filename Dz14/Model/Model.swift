@@ -31,18 +31,18 @@ extension CellContent {
             CellContent(image: "photo10", title: ".", counter: "10")
         ],
         [
-            CellContent(image: "", title: "Videos", counter: "29"),
-            CellContent(image: "", title: "Selfies", counter: "14"),
-            CellContent(image: "", title: "Live Photos", counter: "1"),
-            CellContent(image: "", title: "Portrait", counter: "1"),
-            CellContent(image: "", title: "Screenshots", counter: "63"),
-            CellContent(image: "", title: "Screen Recordings", counter: "1")
+            CellContent(image: "video", title: "Videos", counter: "29"),
+            CellContent(image: "person.crop.square", title: "Selfies", counter: "14"),
+            CellContent(image: "livephoto", title: "Live Photos", counter: "1"),
+            CellContent(image: "cube", title: "Portrait", counter: "1"),
+            CellContent(image: "camera.metering.center.weighted", title: "Screenshots", counter: "63"),
+            CellContent(image: "record.circle", title: "Screen Recordings", counter: "1")
         ],
         [
-            CellContent(image: "", title: "Imports", counter: "14"),
-            CellContent(image: "", title: "Duplicates", counter: "14"),
-            CellContent(image: "", title: "Hidden", withLock: true),
-            CellContent(image: "", title: "Recently Deleted", withLock: true)
+            CellContent(image: "square.and.arrow.down", title: "Imports", counter: "14"),
+            CellContent(image: "square.stack.3d.down.right", title: "Duplicates", counter: "14"),
+            CellContent(image: "eye.slash", title: "Hidden", withLock: true),
+            CellContent(image: "questionmark", title: "Recently Deleted", withLock: true)
         ]
     ]
 }

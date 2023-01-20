@@ -9,7 +9,17 @@ import UIKit
 
 class MyAlbumsCell: UICollectionViewCell {
 
+    // MARK: - Properties
+
     static let identifier = "MyAlbumsCell"
+
+    var cells: CellContent? {
+        didSet {
+            imageView.image = UIImage(named: "photo")
+            titleLabel.text = cells?.title
+            counterLabel.text = cells?.counter
+        }
+    }
 
     // MARK: - Outlets
 

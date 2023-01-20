@@ -9,7 +9,17 @@ import UIKit
 
 class MediaTypesCell: UICollectionViewCell {
 
+    // MARK: - Properties
+
     static let identifier = "MediaTypesCell"
+
+    var cells: CellContent? {
+        didSet {
+            imageView.image = UIImage(systemName: cells?.image ?? "questionmark")
+            titleLabel.text = cells?.title
+            counterLabel.text = cells?.counter
+        }
+    }
 
     // MARK: - Outlets
 
@@ -19,7 +29,7 @@ class MediaTypesCell: UICollectionViewCell {
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.contentMode = .left
+        imageView.contentMode = .center
         return imageView
     }()
 
@@ -89,14 +99,14 @@ class MediaTypesCell: UICollectionViewCell {
             make.left.equalTo(imageView.snp.right).offset(15)
         }
 
-        counterLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(self)
-            make.right.equalTo(chevronImageView.snp.left).offset(-10)
-        }
-
         chevronImageView.snp.makeConstraints { make in
             make.centerY.equalTo(self)
             make.right.equalTo(self).offset(-10)
+        }
+
+        counterLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(self)
+            make.right.equalTo(chevronImageView.snp.left).offset(-10)
         }
 
         separatorView.snp.makeConstraints { make in

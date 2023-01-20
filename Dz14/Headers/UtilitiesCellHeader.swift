@@ -9,7 +9,7 @@ import UIKit
 
 class UtilitiesCellHeader: UICollectionReusableView {
 
-    static let identifier = "UtilittiesCell"
+    static let identifier = "UtilitiesCell"
 
     // MARK: - Outlets
 

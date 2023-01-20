@@ -9,8 +9,16 @@ import UIKit
 
 class UtilittiesCell: UICollectionViewCell {
 
-    static let identifier = "UtilittiesCell"
-    var numbersInIndicator = true
+    // MARK: - Properties
+
+    static let identifier = "UtilitiesCell"
+
+    var cells: CellContent? {
+        didSet {
+            imageView.image = UIImage(systemName: cells?.image ?? "questionmark")
+            titleLabel.text = cells?.title
+        }
+    }
 
     // MARK: - Outlets
 
@@ -20,7 +28,7 @@ class UtilittiesCell: UICollectionViewCell {
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.contentMode = .left
+        imageView.contentMode = .center
         return imageView
     }()
 
@@ -34,21 +42,14 @@ class UtilittiesCell: UICollectionViewCell {
 
     private lazy var counterLabelView: UIView = {
         let view = UIView()
-        if numbersInIndicator {
-            let label = UILabel()
-            label.text = "12"
-            label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-            label.textColor = UIColor.systemGray
-            view.addSubview(label)
-        } else if !numbersInIndicator {
-            let config = UIImage.SymbolConfiguration(pointSize: CGFloat(23.0))
-            let image = UIImage(systemName: "lock.fill", withConfiguration: config)
-            let imageView = UIImageView(image: image)
-            imageView.contentMode = .scaleAspectFill
-            imageView.clipsToBounds = true
-            imageView.contentMode = .left
-            view.addSubview(imageView)
-        }
+        let config = UIImage.SymbolConfiguration(pointSize: CGFloat(15.0))
+        let image = UIImage(systemName: "lock.fill", withConfiguration: config)
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.contentMode = .left
+        imageView.tintColor = .systemGray
+        view.addSubview(imageView)
         return view
     }()
 
@@ -102,14 +103,14 @@ class UtilittiesCell: UICollectionViewCell {
             make.left.equalTo(imageView.snp.right).offset(15)
         }
 
-        counterLabelView.snp.makeConstraints { make in
-            make.centerY.equalTo(self)
-            make.right.equalTo(chevronImageView.snp.left).offset(-10)
-        }
-
         chevronImageView.snp.makeConstraints { make in
             make.centerY.equalTo(self)
             make.right.equalTo(self).offset(-10)
+        }
+
+        counterLabelView.snp.makeConstraints { make in
+            make.centerY.equalTo(self)
+            make.right.equalTo(chevronImageView.snp.left).offset(-10)
         }
 
         separatorView.snp.makeConstraints { make in
