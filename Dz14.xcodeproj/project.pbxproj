@@ -22,6 +22,7 @@
 		8402E9292978501C0039F1F3 /* MediaTypesCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E9282978501C0039F1F3 /* MediaTypesCellHeader.swift */; };
 		8402E92B29785A8F0039F1F3 /* UtilitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E92A29785A8F0039F1F3 /* UtilitiesCell.swift */; };
 		8402E92D297860CD0039F1F3 /* UtilitiesCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E92C297860CD0039F1F3 /* UtilitiesCellHeader.swift */; };
+		8402E92F297864BB0039F1F3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402E92E297864BB0039F1F3 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		8402E9282978501C0039F1F3 /* MediaTypesCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTypesCellHeader.swift; sourceTree = "<group>"; };
 		8402E92A29785A8F0039F1F3 /* UtilitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesCell.swift; sourceTree = "<group>"; };
 		8402E92C297860CD0039F1F3 /* UtilitiesCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesCellHeader.swift; sourceTree = "<group>"; };
+		8402E92E297864BB0039F1F3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		8402E90B29745E860039F1F3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8402E92E297864BB0039F1F3 /* Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				8402E923297815EC0039F1F3 /* MyAlbumsCellHeader.swift in Sources */,
 				8402E92D297860CD0039F1F3 /* UtilitiesCellHeader.swift in Sources */,
 				8402E9152974676D0039F1F3 /* LibraryTabBarViewController.swift in Sources */,
+				8402E92F297864BB0039F1F3 /* Model.swift in Sources */,
 				8402E913297462EA0039F1F3 /* PhotosTabBarController.swift in Sources */,
 				8402E8F529745AC00039F1F3 /* AppDelegate.swift in Sources */,
 				8402E8F729745AC00039F1F3 /* SceneDelegate.swift in Sources */,
