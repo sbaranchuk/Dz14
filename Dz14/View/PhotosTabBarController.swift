@@ -39,4 +39,28 @@ class PhotosTabBarController: UITabBarController, UITabBarControllerDelegate {
         let controllers = [first, second, third, fourth]
         self.setViewControllers(controllers, animated: true)
     }
+
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        switch item.title {
+        case "Library":
+            self.navigationController?.navigationBar.topItem?.title = "Library"
+            self.navigationController?.navigationBar.prefersLargeTitles = false
+            self.navigationController?.navigationBar.topItem?.leftBarButtonItem = nil
+        case "For You":
+            self.navigationController?.navigationBar.topItem?.title = "For You"
+            self.navigationController?.navigationBar.prefersLargeTitles = false
+            self.navigationController?.navigationBar.topItem?.leftBarButtonItem = nil
+        case "Albums":
+            self.navigationController?.navigationBar.topItem?.title = "Albums"
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+            let leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+            self.navigationController?.navigationBar.topItem?.leftBarButtonItem = leftBarButtonItem
+        case "Search":
+            self.navigationController?.navigationBar.topItem?.title = "Search"
+            self.navigationController?.navigationBar.prefersLargeTitles = false
+            self.navigationController?.navigationBar.topItem?.leftBarButtonItem = nil
+        default:
+            return
+        }
+    }
 }
