@@ -15,20 +15,20 @@ class MyAlbumsCellHeader: UICollectionReusableView {
 
     private lazy var separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemGray6
+        view.backgroundColor = .systemGray5
         return view
     }()
 
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 19)
+        label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         return label
     }()
 
     lazy var seeAllLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemBlue
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         return label
     }()
 
@@ -66,11 +66,12 @@ class MyAlbumsCellHeader: UICollectionReusableView {
         titleLabel.snp.makeConstraints{ make in
             make.bottom.equalTo(self)
             make.left.equalTo(self)
+            make.top.equalTo(separatorView.snp.bottom).offset(10)
         }
 
         seeAllLabel.snp.makeConstraints { make in
             make.bottom.equalTo(self)
-            make.right.equalTo(self).offset(-17)
+            make.right.equalTo(self).offset(-20)
         }
     }
 }

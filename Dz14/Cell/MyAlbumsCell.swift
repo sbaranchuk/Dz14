@@ -37,14 +37,14 @@ class MyAlbumsCell: UICollectionViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Recents"
-        label.font = label.font.withSize(14)
+        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         return label
     }()
 
     private lazy var counterLabel: UILabel = {
         let label = UILabel()
         label.text = "129"
-        label.font = UIFont.boldSystemFont(ofSize: 13)
+        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.textColor = UIColor.systemGray
         return label
     }()
@@ -76,12 +76,12 @@ class MyAlbumsCell: UICollectionViewCell {
         }
 
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(2)
+            make.top.equalTo(imageView.snp.bottom).offset(5)
             make.left.equalTo(imageView.snp.left)
         }
 
         counterLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom)
+            make.top.equalTo(titleLabel.snp.bottom).offset(3)
             make.left.equalTo(imageView.snp.left)
         }
     }

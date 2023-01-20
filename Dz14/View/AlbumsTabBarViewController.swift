@@ -64,23 +64,23 @@ class AlbumsTabBarViewController: UIViewController {
             
             switch sectionIndex {
             case 0:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.95),
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .fractionalHeight(0.5))
                 
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
                 layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
                 
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.46),
-                                                       heightDimension: .fractionalHeight(0.53))
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.47),
+                                                       heightDimension: .fractionalHeight(0.56))
                 
                 let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: layoutItem, count: 2)
-                layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0)
+                layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0)
                 
                 let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(30))
                 let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
                 
                 let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
-                sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 5)
+                sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 15, trailing: 0)
                 sectionLayout.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
                 sectionLayout.boundarySupplementaryItems = [layoutSectionHeader]
                 
@@ -102,7 +102,7 @@ class AlbumsTabBarViewController: UIViewController {
                 let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
                 
                 let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
-                sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 0)
+                sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 15, trailing: 0)
                 sectionLayout.orthogonalScrollingBehavior = .groupPaging
                 sectionLayout.boundarySupplementaryItems = [layoutSectionHeader]
                 
@@ -124,7 +124,7 @@ class AlbumsTabBarViewController: UIViewController {
                 let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
 
                 let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
-                sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 0)
+                sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 15, trailing: 0)
                 sectionLayout.orthogonalScrollingBehavior = .groupPaging
                 sectionLayout.boundarySupplementaryItems = [layoutSectionHeader]
                 

@@ -15,13 +15,13 @@ class UtilitiesCellHeader: UICollectionReusableView {
 
     private lazy var separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemGray6
+        view.backgroundColor = .systemGray5
         return view
     }()
 
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 19)
+        label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         return label
     }()
 
@@ -57,6 +57,7 @@ class UtilitiesCellHeader: UICollectionReusableView {
         titleLabel.snp.makeConstraints{ make in
             make.bottom.equalTo(self)
             make.left.equalTo(self)
+            make.top.equalTo(separatorView.snp.bottom).offset(10)
         }
     }
 }
