@@ -42,7 +42,7 @@ extension CellContent {
             CellContent(image: "square.and.arrow.down", title: "Imports", counter: "14"),
             CellContent(image: "square.stack.3d.down.right", title: "Duplicates", counter: "14"),
             CellContent(image: "eye.slash", title: "Hidden", withLock: true),
-            CellContent(image: "questionmark", title: "Recently Deleted", withLock: true)
+            CellContent(image: "trash", title: "Recently Deleted", withLock: true)
         ]
     ]
 }

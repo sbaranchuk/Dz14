@@ -15,7 +15,8 @@ class UtilittiesCell: UICollectionViewCell {
 
     var cells: CellContent? {
         didSet {
-            imageView.image = UIImage(systemName: cells?.image ?? "questionmark")
+            let config = UIImage.SymbolConfiguration(pointSize: CGFloat(23))
+            imageView.image = UIImage(systemName: (cells?.image ?? "questionmark"), withConfiguration: config)
             titleLabel.text = cells?.title
         }
     }
@@ -23,8 +24,7 @@ class UtilittiesCell: UICollectionViewCell {
     // MARK: - Outlets
 
     private lazy var imageView: UIImageView = {
-        let config = UIImage.SymbolConfiguration(pointSize: CGFloat(23.0))
-        let image = UIImage(systemName: "video", withConfiguration: config)
+        let image: UIImage? = nil
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -40,17 +40,15 @@ class UtilittiesCell: UICollectionViewCell {
         return label
     }()
 
-    private lazy var counterLabelView: UIView = {
-        let view = UIView()
-        let config = UIImage.SymbolConfiguration(pointSize: CGFloat(15.0))
+    private lazy var counterLabelView: UIImageView = {
+        let config = UIImage.SymbolConfiguration(pointSize: CGFloat(13.0))
         let image = UIImage(systemName: "lock.fill", withConfiguration: config)
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.contentMode = .left
         imageView.tintColor = .systemGray
-        view.addSubview(imageView)
-        return view
+        return imageView
     }()
 
     private lazy var chevronImageView: UIImageView = {
@@ -96,6 +94,7 @@ class UtilittiesCell: UICollectionViewCell {
         imageView.snp.makeConstraints { make in
             make.centerY.equalTo(self)
             make.left.equalTo(self)
+            make.height.width.equalTo(30)
         }
 
         titleLabel.snp.makeConstraints { make in
