@@ -67,7 +67,6 @@ class UtilittiesCell: UICollectionViewCell {
         return view
     }()
 
-
     // MARK: - Initializer
 
     override init(frame: CGRect) {

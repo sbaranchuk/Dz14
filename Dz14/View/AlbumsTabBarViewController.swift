@@ -163,7 +163,6 @@ extension AlbumsTabBarViewController: UICollectionViewDelegate, UICollectionView
         return cells?.count ?? 0
     }
 
-
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:

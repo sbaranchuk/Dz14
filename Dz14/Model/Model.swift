@@ -24,7 +24,6 @@ extension CellContent {
             CellContent(image: "photo4", title: "Other", counter: "27"),
             CellContent(image: "photo5", title: "Other2", counter: "58"),
             CellContent(image: "photo6", title: "Work", counter: "88"),
-            CellContent(image: "photo7", title: "Gym", counter: "0"),
             CellContent(image: "photo7", title: "My diet", counter: "199"),
             CellContent(image: "photo8", title: "fdfsdf", counter: "5"),
             CellContent(image: "photo9", title: "freww", counter: "1"),

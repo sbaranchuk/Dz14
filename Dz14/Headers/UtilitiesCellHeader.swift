@@ -46,7 +46,6 @@ class UtilitiesCellHeader: UICollectionReusableView {
     }
 
     private func setupLayout() {
-
         separatorView.snp.makeConstraints { make in
             make.top.equalTo(self)
             make.left.equalTo(self)

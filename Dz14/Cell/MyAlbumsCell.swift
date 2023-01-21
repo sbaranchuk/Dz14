@@ -15,7 +15,7 @@ class MyAlbumsCell: UICollectionViewCell {
 
     var cells: CellContent? {
         didSet {
-            imageView.image = UIImage(named: "photo")
+            imageView.image = UIImage(named: cells?.image ?? "photo")
             titleLabel.text = cells?.title
             counterLabel.text = cells?.counter
         }
