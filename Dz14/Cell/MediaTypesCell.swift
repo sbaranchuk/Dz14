@@ -15,7 +15,8 @@ class MediaTypesCell: UICollectionViewCell {
 
     var cells: CellContent? {
         didSet {
-            imageView.image = UIImage(systemName: cells?.image ?? "questionmark")
+            let config = UIImage.SymbolConfiguration(pointSize: CGFloat(23))
+            imageView.image = UIImage(systemName: (cells?.image ?? "questionmark"), withConfiguration: config)
             titleLabel.text = cells?.title
             counterLabel.text = cells?.counter
         }
@@ -24,8 +25,7 @@ class MediaTypesCell: UICollectionViewCell {
     // MARK: - Outlets
 
     private lazy var imageView: UIImageView = {
-        let config = UIImage.SymbolConfiguration(pointSize: CGFloat(23.0))
-        let image = UIImage(systemName: "video", withConfiguration: config)
+        let image: UIImage? = nil
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -44,7 +44,7 @@ class MediaTypesCell: UICollectionViewCell {
     private lazy var counterLabel: UILabel = {
         let label = UILabel()
         label.text = "12"
-        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.textColor = UIColor.systemGray
         return label
     }()
@@ -92,6 +92,7 @@ class MediaTypesCell: UICollectionViewCell {
         imageView.snp.makeConstraints { make in
             make.centerY.equalTo(self)
             make.left.equalTo(self)
+            make.height.width.equalTo(30)
         }
 
         titleLabel.snp.makeConstraints { make in
