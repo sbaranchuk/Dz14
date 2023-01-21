@@ -170,6 +170,7 @@ extension AlbumsTabBarViewController: UICollectionViewDelegate, UICollectionView
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyAlbumsCell.identifier, for: indexPath) as? MyAlbumsCell
             cell?.cells = cells?[indexPath.section][indexPath.item]
             cell?.backgroundColor = .clear
+            cell?.clearColorForHeartIcon()
             return cell ?? UICollectionViewCell()
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesCell.identifier, for: indexPath) as? MediaTypesCell

@@ -49,6 +49,13 @@ class MyAlbumsCell: UICollectionViewCell {
         return label
     }()
 
+    private lazy var heartIcon: UIImageView = {
+        let image = UIImage(systemName: "heart.fill")
+        let imageView = UIImageView(image: image)
+        imageView.tintColor = .clear
+        return imageView
+    }()
+
     // MARK: - Initializer
 
     override init(frame: CGRect) {
@@ -67,6 +74,7 @@ class MyAlbumsCell: UICollectionViewCell {
         addSubview(imageView)
         addSubview(titleLabel)
         addSubview(counterLabel)
+        addSubview(heartIcon)
     }
 
     private func setupLayout() {
@@ -84,5 +92,21 @@ class MyAlbumsCell: UICollectionViewCell {
             make.top.equalTo(titleLabel.snp.bottom).offset(3)
             make.left.equalTo(imageView.snp.left)
         }
+
+        heartIcon.snp.makeConstraints { make in
+            make.left.equalTo(imageView.snp.left).offset(5)
+            make.bottom.equalTo(imageView.snp.bottom).offset(-5)
+        }
+    }
+
+    func clearColorForHeartIcon() {
+        if titleLabel.text == "Favourites" {
+            heartIcon.tintColor = .white
+        }
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        heartIcon.tintColor = .clear
     }
 }
